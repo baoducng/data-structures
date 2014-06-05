@@ -20,10 +20,11 @@ queueMethods.dequeue = function() {
   if(this._size > 0) {
     this._size--;
     var result = this._storage[0];
-    delete result;
+    delete this._storage[0];
     for (var index in this._storage) {
       this._storage[index - 1] = this._storage[index];
     }
+    console.log(this._storage);
     return result;
   }
 };
